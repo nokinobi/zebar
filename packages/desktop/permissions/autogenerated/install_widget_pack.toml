@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-install-widget-pack"
+description = "Enables the install_widget_pack command without any pre-configured scope."
+commands.allow = ["install_widget_pack"]
+
+[[permission]]
+identifier = "deny-install-widget-pack"
+description = "Denies the install_widget_pack command without any pre-configured scope."
+commands.deny = ["install_widget_pack"]

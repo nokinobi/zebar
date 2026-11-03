@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-stop-widget-preset"
+description = "Enables the stop_widget_preset command without any pre-configured scope."
+commands.allow = ["stop_widget_preset"]
+
+[[permission]]
+identifier = "deny-stop-widget-preset"
+description = "Denies the stop_widget_preset command without any pre-configured scope."
+commands.deny = ["stop_widget_preset"]

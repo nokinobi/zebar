@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-create-widget-pack"
+description = "Enables the create_widget_pack command without any pre-configured scope."
+commands.allow = ["create_widget_pack"]
+
+[[permission]]
+identifier = "deny-create-widget-pack"
+description = "Denies the create_widget_pack command without any pre-configured scope."
+commands.deny = ["create_widget_pack"]

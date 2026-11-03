@@ -9,8 +9,8 @@ use super::{
 };
 use super::{
   battery::BatteryOutput, cpu::CpuOutput, disk::DiskOutput,
-  host::HostOutput, ip::IpOutput, memory::MemoryOutput,
-  network::NetworkOutput, weather::WeatherOutput,
+  glazewm::GlazeWmOutput, host::HostOutput, ip::IpOutput,
+  memory::MemoryOutput, network::NetworkOutput, weather::WeatherOutput,
 };
 
 /// Implements `From<T>` for `ProviderOutput` for each given variant.
@@ -33,6 +33,7 @@ pub enum ProviderOutput {
   Audio(AudioOutput),
   Battery(BatteryOutput),
   Cpu(CpuOutput),
+  GlazeWm(GlazeWmOutput),
   Host(HostOutput),
   Ip(IpOutput),
   #[cfg(any(target_os = "macos", windows))]
@@ -52,6 +53,7 @@ pub enum ProviderOutput {
 impl_provider_output! {
   Battery(BatteryOutput),
   Cpu(CpuOutput),
+  GlazeWm(GlazeWmOutput),
   Host(HostOutput),
   Ip(IpOutput),
   Memory(MemoryOutput),

@@ -18,6 +18,7 @@ async-trait = "0.1"
 clap = { version = "4", features = ["derive", "env"] }
 crossbeam = "0.8"
 flate2 = "1"
+futures-util = "0.3"
 globset = "0.4"
 netdev = "0.33"
 regex = "1"
@@ -41,6 +42,7 @@ tauri-plugin-single-instance = "2"
 tauri-plugin-shell = "2"
 tera = "1"
 tokio = { version = "1", features = ["full"] }
+tokio-tungstenite = "0.30"
 tracing = "0.1"
 tracing-appender = "0.2"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }

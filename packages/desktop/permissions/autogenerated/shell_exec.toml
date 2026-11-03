@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-shell-exec"
+description = "Enables the shell_exec command without any pre-configured scope."
+commands.allow = ["shell_exec"]
+
+[[permission]]
+identifier = "deny-shell-exec"
+description = "Denies the shell_exec command without any pre-configured scope."
+commands.deny = ["shell_exec"]
