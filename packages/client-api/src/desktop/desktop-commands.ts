@@ -25,6 +25,7 @@ export const desktopCommands = {
 
 export type ProviderFunction =
   | AudioFunction
+  | GlazeWmFunction
   | MediaFunction
   | SystrayFunction;
 
@@ -45,6 +46,17 @@ export interface AudioFunction {
           deviceId?: string;
         };
       };
+}
+
+export interface GlazeWmFunction {
+  type: 'glazewm';
+  function: {
+    name: 'run_command';
+    args: {
+      command: string;
+      subjectContainerId?: string;
+    };
+  };
 }
 
 export interface MediaFunction {
@@ -112,11 +124,11 @@ function unlistenProvider(configHash: string): Promise<void> {
   return invoke<void>('unlisten_provider', { configHash });
 }
 
-function callProviderFunction(
+function callProviderFunction<T = void>(
   configHash: string,
   fn: ProviderFunction,
-): Promise<void> {
-  return invoke<void>('call_provider_function', {
+): Promise<T> {
+  return invoke<T>('call_provider_function', {
     configHash,
     function: fn,
   });

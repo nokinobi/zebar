@@ -18,10 +18,11 @@ use super::{
 };
 use super::{
   battery::BatteryProvider, cpu::CpuProvider, disk::DiskProvider,
-  host::HostProvider, ip::IpProvider, memory::MemoryProvider,
-  network::NetworkProvider, weather::WeatherProvider, Provider,
-  ProviderConfig, ProviderFunction, ProviderFunctionResponse,
-  ProviderFunctionResult, ProviderOutput, RuntimeType,
+  glazewm::GlazeWmProvider, host::HostProvider, ip::IpProvider,
+  memory::MemoryProvider, network::NetworkProvider,
+  weather::WeatherProvider, Provider, ProviderConfig, ProviderFunction,
+  ProviderFunctionResponse, ProviderFunctionResult, ProviderOutput,
+  RuntimeType,
 };
 
 /// Common fields for a provider.
@@ -247,9 +248,9 @@ impl ProviderManager {
     common: CommonProviderState,
   ) -> anyhow::Result<(task::JoinHandle<()>, RuntimeType)> {
     let runtime_type = match config {
-      ProviderConfig::Ip(..) | ProviderConfig::Weather(..) => {
-        RuntimeType::Async
-      }
+      ProviderConfig::GlazeWm(..)
+      | ProviderConfig::Ip(..)
+      | ProviderConfig::Weather(..) => RuntimeType::Async,
       #[cfg(any(target_os = "macos", windows))]
       ProviderConfig::Komorebi(..) => RuntimeType::Async,
       #[cfg(windows)]
@@ -261,6 +262,10 @@ impl ProviderManager {
     let task_handle = match &runtime_type {
       RuntimeType::Async => task::spawn(async move {
         match config {
+          ProviderConfig::GlazeWm(config) => {
+            let mut provider = GlazeWmProvider::new(config, common);
+            provider.start_async().await;
+          }
           ProviderConfig::Ip(config) => {
             let mut provider = IpProvider::new(config, common);
             provider.start_async().await;

@@ -12,6 +12,20 @@
     "dialog:default",
     "dialog:allow-open",
     "shell:default",
-    "shell:allow-open"
+    "shell:allow-open",
+    "allow-widget-packs",
+    "allow-widget-states",
+    "allow-start-widget",
+    "allow-start-widget-preset",
+    "allow-stop-widget-preset",
+    "allow-update-widget-config",
+    "allow-create-widget-pack",
+    "allow-update-widget-pack",
+    "allow-delete-widget-pack",
+    "allow-create-widget-config",
+    "allow-delete-widget-config",
+    "allow-install-widget-pack",
+    "allow-start-preview-widget",
+    "allow-stop-all-preview-widgets"
   ]
 }

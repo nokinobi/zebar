@@ -1,9 +1,13 @@
 use serde::{Deserialize, Serialize};
 
+use super::glazewm::GlazeWmRunCommandResponse;
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(tag = "type", content = "function", rename_all = "snake_case")]
 pub enum ProviderFunction {
   Audio(AudioFunction),
+  #[serde(rename = "glazewm")]
+  GlazeWm(GlazeWmFunction),
   Media(MediaFunction),
   Systray(SystrayFunction),
 }
@@ -27,6 +31,19 @@ pub struct SetVolumeArgs {
 pub struct SetMuteArgs {
   pub mute: bool,
   pub device_id: Option<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(tag = "name", content = "args", rename_all = "snake_case")]
+pub enum GlazeWmFunction {
+  RunCommand(GlazeWmRunCommandArgs),
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct GlazeWmRunCommandArgs {
+  pub command: String,
+  pub subject_container_id: Option<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -69,4 +86,5 @@ pub type ProviderFunctionResult = Result<ProviderFunctionResponse, String>;
 #[serde(untagged)]
 pub enum ProviderFunctionResponse {
   Null,
+  GlazeWmRunCommand(GlazeWmRunCommandResponse),
 }

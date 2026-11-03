@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-shell-spawn"
+description = "Enables the shell_spawn command without any pre-configured scope."
+commands.allow = ["shell_spawn"]
+
+[[permission]]
+identifier = "deny-shell-spawn"
+description = "Denies the shell_spawn command without any pre-configured scope."
+commands.deny = ["shell_spawn"]

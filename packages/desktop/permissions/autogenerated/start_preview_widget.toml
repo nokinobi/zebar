@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-start-preview-widget"
+description = "Enables the start_preview_widget command without any pre-configured scope."
+commands.allow = ["start_preview_widget"]
+
+[[permission]]
+identifier = "deny-start-preview-widget"
+description = "Denies the start_preview_widget command without any pre-configured scope."
+commands.deny = ["start_preview_widget"]

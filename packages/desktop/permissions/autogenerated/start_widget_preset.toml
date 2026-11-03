@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-start-widget-preset"
+description = "Enables the start_widget_preset command without any pre-configured scope."
+commands.allow = ["start_widget_preset"]
+
+[[permission]]
+identifier = "deny-start-widget-preset"
+description = "Denies the start_widget_preset command without any pre-configured scope."
+commands.deny = ["start_widget_preset"]

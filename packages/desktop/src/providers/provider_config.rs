@@ -9,9 +9,10 @@ use super::{
 };
 use super::{
   battery::BatteryProviderConfig, cpu::CpuProviderConfig,
-  disk::DiskProviderConfig, host::HostProviderConfig,
-  ip::IpProviderConfig, memory::MemoryProviderConfig,
-  network::NetworkProviderConfig, weather::WeatherProviderConfig,
+  disk::DiskProviderConfig, glazewm::GlazeWmProviderConfig,
+  host::HostProviderConfig, ip::IpProviderConfig,
+  memory::MemoryProviderConfig, network::NetworkProviderConfig,
+  weather::WeatherProviderConfig,
 };
 
 #[derive(Deserialize, Debug)]
@@ -21,6 +22,8 @@ pub enum ProviderConfig {
   Audio(AudioProviderConfig),
   Battery(BatteryProviderConfig),
   Cpu(CpuProviderConfig),
+  #[serde(rename = "glazewm")]
+  GlazeWm(GlazeWmProviderConfig),
   Host(HostProviderConfig),
   Ip(IpProviderConfig),
   #[cfg(any(target_os = "macos", windows))]

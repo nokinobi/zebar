@@ -1,0 +1,11 @@
+# Automatically generated - DO NOT EDIT!
+
+[[permission]]
+identifier = "allow-listen-provider"
+description = "Enables the listen_provider command without any pre-configured scope."
+commands.allow = ["listen_provider"]
+
+[[permission]]
+identifier = "deny-listen-provider"
+description = "Denies the listen_provider command without any pre-configured scope."
+commands.deny = ["listen_provider"]
